@@ -1,4 +1,7 @@
-#!/usr/bin/env python3
 import requests
 
-API = #input Spotify's API IP address here
+URL = "http://127.0.0.1:2224/genres"
+
+resp = requests.get(URL)
+
+print(resp.json())
