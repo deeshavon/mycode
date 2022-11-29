@@ -12,7 +12,7 @@ app = Flask(__name__)
 # should call the associated function
 @app.route("/genres")
 def movie():
-    return random.choice(genres)
+    return random.choice(list(genres.values()))
 
 
 @app.route("/leaving")
@@ -52,14 +52,15 @@ genres = {
 }
 
 
-@app.route("/")
+@app.route("/json")
 def index():
     # jsonify returns legal JSON
-    return jsonify()
+    return jsonify(genres)
 
 @app.route("/")
-def index():
-    return render_template("howdy.html")
+def alpha():
+    rando=random.choice(list(genres.values()))
+    return render_template("howdy.html", butterfingers=rando)
 
 
 if __name__ == "__main__":
